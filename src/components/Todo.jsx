@@ -14,7 +14,10 @@ export default function Todo(props) {
     }
   }
 
+
+
   function deleteTask(index) {}
+  const [filter, setFilter] = useState("all");
 
   return (
     <div className="flex w-[377px] h-[290px] flex-col justify-center items-center gap-[20px]  rounded-[12px] pt-24 pb-24 pl-16 pr-16  bg-white shadow-md">
@@ -29,7 +32,7 @@ export default function Todo(props) {
         />
 
         <button
-          className="flex h-[40px] pt-[8px] pb-[8px] pr-[16px] pl-[16px] items-center gap-[10px] rounded-[6px] text-white bg-blue-500"
+          className="flex h-[40px] pt-[8px] pb-[8px] pr-[16px] pl-[16px] items-center gap-[10px] rounded-[6px] text-white bg-blue-500 hover:bg-blue-300 hover:text-white"
           onClick={addTask}
         >
           Add
@@ -40,7 +43,7 @@ export default function Todo(props) {
           {tasks.map((task, index) => (
             <li key={index}>
               <span className="text">{task}</span>
-              <button className="deleteBtn" onClick={() => deleteTask(index)}>
+              <button className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-200 transition " onClick={() => deleteTask(index)}>
                 Delete
               </button>
             </li>
@@ -48,15 +51,29 @@ export default function Todo(props) {
         </ol>
 
       <div className="flex justify-center  gap-4 items-center ">
-        <button className="w-[45px] h-[32px] text-center rounded-[6px] border-0  text-white bg-blue-500 pt-[4px] pb-[4px] pr-[12px] pl-[12px]">
-          All
-        </button>
-        <button className="w-[80px] h-[32px] text-center rounded-[6px] border-0 text-black bg-gray-100 pt-[4px] pb-[4px] pr-[12px] pl-[12px]">
-          Active
-        </button>
-        <button className="w-[100px] h-[32px] text-center rounded-[6px] border-0 text-black bg-gray-100 pt-[4px] pb-[4px] pr-[12px] pl-[12px]">
-          Completed
-        </button>
+      <button
+        onClick={() => setFilter("all")}
+        className={`w-[60px] h-[32px] rounded text-center 
+          ${filter === "all" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
+      >
+        All
+      </button>
+
+      <button
+        onClick={() => setFilter("active")}
+        className={`w-[80px] h-[32px] rounded text-center 
+          ${filter === "active" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
+      >
+        Active
+      </button>
+
+      <button
+        onClick={() => setFilter("completed")}
+        className={`w-[100px] h-[32px] rounded text-center 
+          ${filter === "completed" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
+      >
+        Completed
+      </button>
       </div>
       <p className="text-gray-400">No tasks yet. Add one above!</p>
       <div className=" flex gap-2">
