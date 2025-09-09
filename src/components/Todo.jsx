@@ -2,7 +2,7 @@
 import { use, useState } from "react";
 
 export default function Todo(props) {
-  const [tasks, setTasks] = useState([""]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   function handleInputchange(event) {
     setNewTask(event.target.value);
@@ -14,9 +14,10 @@ export default function Todo(props) {
     }
   }
 
-
-
-  function deleteTask(index) {}
+  function deleteTask(index) {
+    const updadedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updadedTasks);
+  }
   const [filter, setFilter] = useState("all");
 
   return (
@@ -25,7 +26,7 @@ export default function Todo(props) {
       <div className="flex gap-[10px]">
         <input
           type="text"
-          className="border-1 rounded-[6px] w-[250px] "
+          className="border-1 rounded-[6px]  w-[250px] "
           value={newTask}
           placeholder="Add a new task"
           onChange={handleInputchange}
@@ -37,43 +38,59 @@ export default function Todo(props) {
         >
           Add
         </button>
-      </div>
-        {" "}
-        <ol>
-          {tasks.map((task, index) => (
-            <li key={index}>
-              <span className="text">{task}</span>
-              <button className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-200 transition " onClick={() => deleteTask(index)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ol>
-
+      </div>{" "}
+      <ol>
+        {tasks.map((task, index) => (
+          <li
+            key={index}
+            className="flex items-center justify-between gap-4 mb-2"
+          >
+            <span className="text">{task}</span>
+            <button
+              className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-200 transition "
+              onClick={() => deleteTask(index)}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ol>
       <div className="flex justify-center  gap-4 items-center ">
-      <button
-        onClick={() => setFilter("all")}
-        className={`w-[60px] h-[32px] rounded text-center 
-          ${filter === "all" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
-      >
-        All
-      </button>
+        <button
+          onClick={() => setFilter("all")}
+          className={`w-[60px] h-[32px] rounded text-center 
+          ${
+            filter === "all"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          All
+        </button>
 
-      <button
-        onClick={() => setFilter("active")}
-        className={`w-[80px] h-[32px] rounded text-center 
-          ${filter === "active" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
-      >
-        Active
-      </button>
+        <button
+          onClick={() => setFilter("active")}
+          className={`w-[80px] h-[32px] rounded text-center 
+          ${
+            filter === "active"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          Active
+        </button>
 
-      <button
-        onClick={() => setFilter("completed")}
-        className={`w-[100px] h-[32px] rounded text-center 
-          ${filter === "completed" ? "bg-blue-500 text-white" : "bg-gray-100 text-black"}`}
-      >
-        Completed
-      </button>
+        <button
+          onClick={() => setFilter("completed")}
+          className={`w-[100px] h-[32px] rounded text-center 
+          ${
+            filter === "completed"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          Completed
+        </button>
       </div>
       <p className="text-gray-400">No tasks yet. Add one above!</p>
       <div className=" flex gap-2">
