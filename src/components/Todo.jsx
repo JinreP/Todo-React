@@ -15,7 +15,7 @@ export default function Todo(props) {
   }
 
   function deleteTask(index) {
-    const updadedTasks = tasks.filter((_, i) => i !== index);
+    const updadedTasks = tasks.filter((tasks, i) => i !== index);
     setTasks(updadedTasks);
   }
   const [filter, setFilter] = useState("all");
@@ -45,7 +45,7 @@ export default function Todo(props) {
             key={index}
             className="flex items-center justify-between gap-4 mb-2"
           >
-            <span className="text">{task}</span>
+            <span className="text text-3xl rounded-2xl bg-gray-200 w-[250px] pl-5 h-[40px]">{task}</span>
             <button
               className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-200 transition "
               onClick={() => deleteTask(index)}
