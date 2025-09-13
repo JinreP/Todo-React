@@ -3,33 +3,32 @@ import { use, useState } from "react";
 
 export default function Todo(props) {
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
-  function handleInputchange(event) {
-    setNewTask(event.target.value);
+  const [inputValue, setInputvalue] = useState("");
+  function handleChange(e) {
+    setInputvalue(e.target.value);
   }
-  function addTask() {
-    if (newTask.trim() !== "") {
-      setTasks((t) => [...t, newTask]);
-      setNewTask("");
+  const addTask = () => {
+    if (inputValue.trim() !== "") {
+      setTasks([...tasks, inputValue]);
+      setInputvalue("");
     }
-  }
-
-  function deleteTask(index) {
-    const updadedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updadedTasks);
-  }
+  };
   const [filter, setFilter] = useState("all");
 
+  const deleteTasks = (deleteIndex) => {
+    const deleteTask = tasks.filter((_, i) => i !== deleteIndex);
+    setTasks(deleteTask);
+  };
   return (
-    <div className="flex w-[377px] h-[290px] flex-col justify-center items-center gap-[20px]  rounded-[12px] pt-24 pb-24 pl-16 pr-16  bg-white shadow-md">
+    <div className="flex w-[377px]  max-h-[290px] flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-white shadow-md">
       <h1 className="text-2xl ">To-Do-List</h1>
       <div className="flex gap-[10px]">
         <input
           type="text"
           className="border-1 rounded-[6px]  w-[250px] "
-          value={newTask}
           placeholder="Add a new task"
-          onChange={handleInputchange}
+          value={inputValue}
+          onChange={handleChange}
         />
 
         <button
@@ -39,55 +38,55 @@ export default function Todo(props) {
           Add
         </button>
       </div>{" "}
-      <ol>
-        {tasks.map((task, index) => (
-          <li
-            key={index}
-            className="flex items-center justify-between gap-4 mb-2"
-          >
-            <span className="text">{task}</span>
-            <button
-              className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-200 transition "
-              onClick={() => deleteTask(index)}
+        <ol className="flex flex-col gap-2">
+          {tasks.map((task, index) => (
+            <li
+              key={index}
+              className="flex gap-2 w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
             >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ol>
-      <div className="flex justify-center  gap-4 items-center ">
+              <span className="text-base">{task}</span>
+              <button
+                className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
+                onClick={() => deleteTasks(index)}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ol>
+      <div className="flex justify-center gap-4 items-center ">
         <button
           onClick={() => setFilter("all")}
-          className={`w-[60px] h-[32px] rounded text-center 
-          ${
-            filter === "all"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-black"
-          }`}
+          className={`w-[60px] h-[32px] rounded text-center
+         ${
+           filter === "all"
+             ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
+             : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
+         }
+          `}
         >
           All
         </button>
 
         <button
-          onClick={() => setFilter("active")}
-          className={`w-[80px] h-[32px] rounded text-center 
-          ${
+          className={`w-[80px] h-[32px] rounded text-center]  ${
             filter === "active"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-black"
+              ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
+              : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
           }`}
+          onClick={() => setFilter("active")}
         >
           Active
         </button>
 
         <button
           onClick={() => setFilter("completed")}
-          className={`w-[100px] h-[32px] rounded text-center 
-          ${
+          className={`w-[100px] h-[32px] rounded text-center ${
             filter === "completed"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-black"
-          }`}
+              ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
+              : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
+          }
+         `}
         >
           Completed
         </button>
