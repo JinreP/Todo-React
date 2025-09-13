@@ -38,22 +38,22 @@ export default function Todo(props) {
           Add
         </button>
       </div>{" "}
-        <ol className="flex flex-col gap-2">
-          {tasks.map((task, index) => (
-            <li
-              key={index}
-              className="flex gap-2 w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
+      <ol className="flex flex-col gap-2">
+        {tasks.map((task, index) => (
+          <li
+            key={index}
+            className="flex gap-2 w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
+          >
+            <span className="text-base">{task}</span>
+            <button
+              className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
+              onClick={() => deleteTasks(index)}
             >
-              <span className="text-base">{task}</span>
-              <button
-                className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
-                onClick={() => deleteTasks(index)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ol>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ol>
       <div className="flex justify-center gap-4 items-center ">
         <button
           onClick={() => setFilter("all")}
