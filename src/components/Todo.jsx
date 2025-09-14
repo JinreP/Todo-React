@@ -25,7 +25,7 @@ export default function Todo(props) {
       <div className="flex gap-[10px]">
         <input
           type="text"
-          className="border-1 rounded-[6px]  w-[250px] "
+          className="w-[250px] px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 text-gray-800 placeholder-gray-400 "
           placeholder="Add a new task"
           value={inputValue}
           onChange={handleChange}
