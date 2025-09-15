@@ -7,6 +7,7 @@ export default function Home() {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const [id, setId] = useState(1);
   function handleChange(e) {
     setInputValue(e.target.value);
   }
@@ -14,8 +15,9 @@ export default function Home() {
     if (inputValue.trim() !== "") {
       setTasks([
         ...tasks,
-        { id: Date.now(), title: inputValue.trim(), completed: false },
+        { id: nextId, title: inputValue.trim(), completed: false },
       ]);
+      setId(nextId + 1);
       setInputValue("");
     }
   };
@@ -25,8 +27,6 @@ export default function Home() {
     const deleteTask = tasks.filter((_, i) => i !== deleteIndex);
     setTasks(deleteTask);
   };
-
-
 
   const toggleTask = (id) => {
     setTasks(
@@ -49,6 +49,8 @@ export default function Home() {
         filter={filter}
         setFilter={setFilter}
         checked={checked}
+        id={id}
+        setId={setId}
         setChecked={setChecked}
         toggleTask={toggleTask}
       />
