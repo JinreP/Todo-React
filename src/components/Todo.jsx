@@ -1,8 +1,7 @@
 "use client";
 import { use, useState } from "react";
 import { Buttons } from "./Buttons";
-import { FaCheckSquare , FaRegSquare} from "react-icons/fa";
-
+import { FaCheckSquare, FaRegSquare } from "react-icons/fa";
 
 export default function Todo(props) {
   const {
@@ -46,7 +45,10 @@ export default function Todo(props) {
             key={index}
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
           >
-            <div className="cursor-pointer absolute left-3 " onClick={clickIcon}>
+            <div
+              className="cursor-pointer absolute left-3 "
+              onClick={clickIcon}
+            >
               {checked ? (
                 <FaCheckSquare size={30} color="green" />
               ) : (
