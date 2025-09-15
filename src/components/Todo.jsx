@@ -40,9 +40,9 @@ export default function Todo(props) {
       </div>{" "}
       <Buttons filter={filter} setFilter={setFilter} />
       <ol className="flex flex-col gap-2">
-        {tasks.map((task, index) => (
+        {tasks.map((task) => (
           <li
-            key={index}
+            key={task.id}
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
           >
             <div
@@ -56,7 +56,7 @@ export default function Todo(props) {
               )}
             </div>
 
-            <span className="pl-10 text-2xl ">{task}</span>
+            <span className="pl-10 text-2xl ">{task.title}</span>
             <button
               className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
               onClick={() => deleteTasks(index)}

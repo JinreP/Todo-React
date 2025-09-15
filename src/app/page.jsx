@@ -12,7 +12,10 @@ export default function Home() {
   }
   const addTask = () => {
     if (inputValue.trim() !== "") {
-      setTasks([...tasks, inputValue]);
+      setTasks([
+        ...tasks,
+        { id: Date.now(), title: inputValue.trim(), completed: false },
+      ]);
       setInputValue("");
     }
   };
