@@ -26,9 +26,7 @@ export default function Home() {
     setTasks(deleteTask);
   };
 
-  // const clickIcon = () => {
-  //   setChecked(!checked);
-  // };
+
 
   const toggleTask = (id) => {
     setTasks(
