@@ -1,7 +1,6 @@
 "use client";
 import { use, useState } from "react";
 import { Buttons } from "./Buttons";
-import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 import { FaCheckSquare , FaRegSquare} from "react-icons/fa";
 
 
