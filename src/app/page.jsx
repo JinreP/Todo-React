@@ -26,9 +26,18 @@ export default function Home() {
     setTasks(deleteTask);
   };
 
-  const clickIcon = () => {
-    setChecked(!checked);
+  // const clickIcon = () => {
+  //   setChecked(!checked);
+  // };
+
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
   };
+
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center">
       <Todo
@@ -41,9 +50,9 @@ export default function Home() {
         deleteTasks={deleteTasks}
         filter={filter}
         setFilter={setFilter}
-        clickIcon={clickIcon}
         checked={checked}
         setChecked={setChecked}
+        toggleTask={toggleTask}
       />
     </div>
   );
