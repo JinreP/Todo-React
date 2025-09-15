@@ -5,17 +5,15 @@ import { Buttons } from "../components/Buttons";
 import Todo from "../components/Todo";
 export default function Home() {
   const [tasks, setTasks] = useState([]);
-  const [inputValue, setInputvalue] = useState("");
-  const [isVisible, setIsVisible] = useState(true);
-  const [checked, setChecked] = useState();
+  const [inputValue, setInputValue] = useState("");
+  const [checked, setChecked] = useState(false);
   function handleChange(e) {
-    setInputvalue(e.target.value);
+    setInputValue(e.target.value);
   }
   const addTask = () => {
     if (inputValue.trim() !== "") {
       setTasks([...tasks, inputValue]);
-      setInputvalue("");
-      setIsVisible(!isVisible);
+      setInputValue("");
     }
   };
   const [filter, setFilter] = useState("all");
@@ -34,14 +32,12 @@ export default function Home() {
         tasks={tasks}
         setTasks={setTasks}
         inputValue={inputValue}
-        setInputvalue={setInputvalue}
+        setInputValue={setInputValue}
         handleChange={handleChange}
         addTask={addTask}
         deleteTasks={deleteTasks}
         filter={filter}
         setFilter={setFilter}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
         clickIcon={clickIcon}
         checked={checked}
         setChecked={setChecked}

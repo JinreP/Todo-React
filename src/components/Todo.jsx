@@ -46,7 +46,7 @@ export default function Todo(props) {
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
           >
             <div
-              className="cursor-pointer absolute left-3 "
+              className="cursor-pointer absolute left-3  "
               onClick={clickIcon}
             >
               {checked ? (
@@ -66,7 +66,7 @@ export default function Todo(props) {
           </li>
         ))}
       </ol>
-      {isVisible && (
+      {tasks.length === 0 && (
         <p className="text-gray-500 ">No tasks yet. Add one above!</p>
       )}
       <div className=" flex gap-2">
