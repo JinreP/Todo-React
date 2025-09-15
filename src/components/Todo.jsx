@@ -1,6 +1,10 @@
 "use client";
 import { use, useState } from "react";
 import { Buttons } from "./Buttons";
+import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
+import { FaCheckSquare , FaRegSquare} from "react-icons/fa";
+
+
 export default function Todo(props) {
   const {
     tasks,
@@ -14,6 +18,9 @@ export default function Todo(props) {
     setFilter,
     setIsVisible,
     isVisible,
+    checked,
+    setChecked,
+    clickIcon,
   } = props;
   return (
     <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-white shadow-md">
@@ -40,81 +47,15 @@ export default function Todo(props) {
             key={index}
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
           >
-            <svg
-              className="absolute left-2"
-              xmlns="http://www.w3.org/2000/svg"
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_29_655)">
-                <rect
-                  x="3"
-                  y="3"
-                  width="20"
-                  height="20"
-                  rx="2"
-                  fill="#0275FF"
-                />
-                <rect
-                  x="2.5"
-                  y="2.5"
-                  width="21"
-                  height="21"
-                  rx="2.5"
-                  stroke="white"
-                />
-                <path
-                  d="M8 12.5L12 16.5L19.5 7"
-                  stroke="white"
-                  strokeWidth="3"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_29_655"
-                  x="0"
-                  y="0"
-                  width="26"
-                  height="26"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feMorphology
-                    radius="2"
-                    operator="dilate"
-                    in="SourceAlpha"
-                    result="effect1_dropShadow_29_655"
-                  />
-                  <feOffset />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.00392157 0 0 0 0 0.372549 0 0 0 0 0.8 0 0 0 1 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_29_655"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_29_655"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-            <span className="pl-7">{task}</span>
+            <div className="cursor-pointer absolute left-3 " onClick={clickIcon}>
+              {checked ? (
+                <FaCheckSquare size={30} color="green" />
+              ) : (
+                <FaRegSquare size={30} color="gray" />
+              )}
+            </div>
+
+            <span className="pl-10 text-2xl ">{task}</span>
             <button
               className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
               onClick={() => deleteTasks(index)}
@@ -124,7 +65,7 @@ export default function Todo(props) {
           </li>
         ))}
       </ol>
-      {!isVisible && (
+      {isVisible && (
         <p className="text-gray-500 ">No tasks yet. Add one above!</p>
       )}
       <div className=" flex gap-2">

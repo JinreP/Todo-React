@@ -6,8 +6,8 @@ import Todo from "../components/Todo";
 export default function Home() {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputvalue] = useState("");
-  const [isVisible, setIsVisible] = useState(false)
-
+  const [isVisible, setIsVisible] = useState(true);
+  const [checked, setChecked] = useState();
   function handleChange(e) {
     setInputvalue(e.target.value);
   }
@@ -15,8 +15,7 @@ export default function Home() {
     if (inputValue.trim() !== "") {
       setTasks([...tasks, inputValue]);
       setInputvalue("");
-      setIsVisible(!isVisible)
-
+      setIsVisible(!isVisible);
     }
   };
   const [filter, setFilter] = useState("all");
@@ -26,6 +25,9 @@ export default function Home() {
     setTasks(deleteTask);
   };
 
+  const clickIcon = () => {
+    setChecked(!checked);
+  };
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center">
       <Todo
@@ -40,6 +42,9 @@ export default function Home() {
         setFilter={setFilter}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
+        clickIcon={clickIcon}
+        checked={checked}
+        setChecked={setChecked}
       />
     </div>
   );
