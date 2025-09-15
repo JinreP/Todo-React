@@ -1,7 +1,6 @@
 "use client";
 import { use, useState } from "react";
 import { Buttons } from "./Buttons";
-import { FaCheckSquare, FaRegSquare } from "react-icons/fa";
 
 export default function Todo(props) {
   const {
@@ -19,6 +18,7 @@ export default function Todo(props) {
     checked,
     setChecked,
     clickIcon,
+    toggleTask,
   } = props;
   return (
     <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-white shadow-md">
@@ -45,18 +45,19 @@ export default function Todo(props) {
             key={task.id}
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
           >
-            <div
-              className="cursor-pointer absolute left-3  "
-              onClick={clickIcon}
+            <input
+              type="checkbox"
+              className="w-[50px] absolute left-2 h-[20px]"
+              checked={task.completed}
+              onChange={() => toggleTask(task.id)}
+            />
+            <span
+              className={`pl-9 text-2xl ${
+                task.completed ? "line-through text-gray-500" : ""
+              }`}
             >
-              {checked ? (
-                <FaCheckSquare size={30} color="green" />
-              ) : (
-                <FaRegSquare size={30} color="gray" />
-              )}
-            </div>
-
-            <span className="pl-10 text-2xl ">{task.title}</span>
+              {task.title}
+            </span>{" "}
             <button
               className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
               onClick={() => deleteTasks(index)}
