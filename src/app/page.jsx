@@ -19,7 +19,6 @@ export default function Home() {
           id: id,
           title: inputValue.trim(),
           completed: false,
-          important: false,
         },
       ]);
       setId(id + 1);
