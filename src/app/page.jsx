@@ -15,7 +15,12 @@ export default function Home() {
     if (inputValue.trim() !== "") {
       setTasks([
         ...tasks,
-        { id: id, title: inputValue.trim(), completed: false , important:false},
+        {
+          id: id,
+          title: inputValue.trim(),
+          completed: false,
+          important: false,
+        },
       ]);
       setId(id + 1);
       setInputValue("");
@@ -31,7 +36,7 @@ export default function Home() {
   const toggleTask = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task 
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   };
@@ -40,11 +45,17 @@ export default function Home() {
     if (filter === "all") return true;
     else if (filter === "active") return t.completed === false;
     else if (filter === "completed") return t.completed === true;
-    else if( filter === "important") return t.important === true
+    else if (filter === "important") return t.important === true;
   });
   const clearCompleted = () => {
     const clear = tasks.filter((task) => !task.completed);
     setTasks(clear);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
   };
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center">
@@ -56,6 +67,7 @@ export default function Home() {
         handleChange={handleChange}
         addTask={addTask}
         deleteTasks={deleteTasks}
+        handleKeyDown={handleKeyDown}
         filter={filter}
         setFilter={setFilter}
         checked={checked}
