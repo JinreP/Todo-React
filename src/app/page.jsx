@@ -36,6 +36,12 @@ export default function Home() {
     );
   };
 
+  const visibleTask = tasks.filter((t) => {
+    if (filter === "all") return true;
+    else if (filter === "active") return t.completed === false;
+    else if (filter === "completed") return t.completed === true;
+  });
+
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center">
       <Todo
@@ -51,6 +57,7 @@ export default function Home() {
         checked={checked}
         id={id}
         setId={setId}
+        visibleTask={visibleTask}
         setChecked={setChecked}
         toggleTask={toggleTask}
       />

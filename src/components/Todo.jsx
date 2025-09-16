@@ -13,11 +13,7 @@ export default function Todo(props) {
     deleteTasks,
     filter,
     setFilter,
-    setIsVisible,
-    isVisible,
-    checked,
-    setChecked,
-    clickIcon,
+    visibleTask,
     toggleTask,
   } = props;
   return (
@@ -38,9 +34,13 @@ export default function Todo(props) {
           Add
         </button>
       </div>{" "}
-      <Buttons filter={filter} setFilter={setFilter} />
+      <Buttons
+        filter={filter}
+        setFilter={setFilter}
+        visibleTask={visibleTask}
+      />
       <ol className="flex flex-col gap-2">
-        {tasks.map((task, i) => (
+        {visibleTask.map((task, i) => (
           <li
             key={task.id}
             className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"

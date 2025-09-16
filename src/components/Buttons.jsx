@@ -1,9 +1,12 @@
 export function Buttons(props) {
-    const {filter, setFilter,} = props
+    const {filter, setFilter, visibleTask} = props
   return (
     <div className="flex justify-center gap-4 items-center ">
       <button
-        onClick={() => setFilter("all")}
+        onClick={() => {
+          setFilter("all");
+          visibleTask;
+        }}
         className={`w-[60px] h-[32px] rounded text-center
      ${
        filter === "all"
