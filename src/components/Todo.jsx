@@ -66,27 +66,25 @@ export default function Todo(props) {
           </li>
         ))}
       </ol>
-      <div className="flex content-between gap-9 mb-10">
-        <p className="">
-          {" "}
-          {tasks.filter((t) => t.completed).length} of {tasks.length} tasks
-          completed
-        </p>
-        {(tasks.length === 0 && (
-          <p className="text-gray-500 ">No tasks yet. Add one above!</p>
-        )) ||
-          (tasks.length !== 0 && (
-            <div>
+      {(tasks.length === 0 && (
+        <p className="text-gray-500 ">No tasks yet. Add one above!</p>
+      )) ||
+        (tasks.length !== 0 && (
+          <div className="flex gap-10">
+            {" "}
+            <p className="">
               {" "}
-              <button
-                onClick={clearCompleted}
-                className="text-red-500  cursor-pointer active:text-red-300 "
-              >
-                Clear completed
-              </button>
-            </div>
-          ))}
-      </div>
+              {tasks.filter((t) => t.completed).length} of {tasks.length} tasks
+              completed
+            </p>
+            <button
+              onClick={clearCompleted}
+              className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
+            >
+              Clear completed
+            </button>
+          </div>
+        ))}
       <div className=" flex gap-2">
         <p className="text-gray-400 ">Powered by</p>
         <a href="" className="text-blue-300">
