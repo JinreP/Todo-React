@@ -57,7 +57,6 @@ export default function Todo(props) {
             >
               {task.title}
             </span>{" "}
-            
             <button
               className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
               onClick={() => deleteTasks(i)}
@@ -71,12 +70,18 @@ export default function Todo(props) {
         <p className="text-gray-500 ">No tasks yet. Add one above!</p>
       )) ||
         (tasks.length !== 0 && (
-          <button
-            onClick={clearCompleted}
-            className="text-red-500 pl-60 cursor-pointer active:text-red-300 "
-          >
-            Clear completed
-          </button>
+          <div>
+            {" "}
+            <button
+              onClick={clearCompleted}
+              className="text-red-500 pl-60 cursor-pointer active:text-red-300 "
+            >
+              Clear completed
+            </button>
+            <p className="text-red-500 pl-60 cursor-pointer  active:text-red-300 ">
+              {tasks.completed} of {tasks.length} completed
+            </p>
+          </div>
         ))}
       <div className=" flex gap-2">
         <p className="text-gray-400 ">Powered by</p>
