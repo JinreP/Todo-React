@@ -15,9 +15,9 @@ export default function Home() {
     if (inputValue.trim() !== "") {
       setTasks([
         ...tasks,
-        { id: nextId, title: inputValue.trim(), completed: false },
+        { id: id, title: inputValue.trim(), completed: false },
       ]);
-      setId(nextId + 1);
+      setId(id + 1);
       setInputValue("");
     }
   };
