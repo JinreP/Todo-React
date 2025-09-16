@@ -43,7 +43,7 @@ export default function Todo(props) {
         {visibleTask.map((task, i) => (
           <li
             key={task.id}
-            className="flex gap-2 relative w-[310px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-2xl b"
+            className="flex gap-2 relative w-[345px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-[5px] b"
           >
             <input
               type="checkbox"
