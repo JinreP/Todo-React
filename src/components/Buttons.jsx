@@ -1,7 +1,7 @@
 export function Buttons(props) {
-  const { filter, setFilter, visibleTask } = props;
+  const { filter, setFilter, visibleTask, toggleImportant } = props;
   return (
-    <div className="flex justify-center gap-4 items-center ">
+    <div className="flex justify-center gap-3 items-center ">
       <button
         onClick={() => {
           setFilter("all");
@@ -40,7 +40,7 @@ export function Buttons(props) {
       >
         Completed
       </button>
-      <a
+      {/* <a
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         target="_blank"
         className={`w-[100px] h-[32px] rounded text-center ${
@@ -51,7 +51,19 @@ export function Buttons(props) {
      `}
       >
         Click here
-      </a>
+      </a> */}
+
+      <button
+        onClick={() => setFilter("important")}
+        className={`w-[100px] h-[32px] rounded text-center ${
+          filter === "important"
+            ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
+            : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
+        }
+     `}
+      >
+        Important
+      </button>
     </div>
   );
 }
