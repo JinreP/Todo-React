@@ -20,7 +20,7 @@ export default function Todo(props) {
   } = props;
   return (
     <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-black">
-      <h1 className="text-2xl ">To-Do-List</h1>
+      <h1 className="text-4xl text-red-500 ">To-Do-List</h1>
       <div className="flex gap-[10px]">
         <input
           type="text"
@@ -69,7 +69,7 @@ export default function Todo(props) {
                 toggleImportant(task.id);
               }}
               className={`w-[20px] absolute right-24 h-[20px] cursor-pointer
-                  ${task.important === false ? "" : "text-[red]"}
+                  ${task.favourite === false ? "" : "text-[red]"}
                 `}
             />
             <button
@@ -111,18 +111,28 @@ export default function Todo(props) {
           </div>
         ))}
       {tasks.length !== 0 && (
-        <button
-          onClick={clearAll}
-          className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
-        >
-          Clear all
-        </button>
+        <div className="flex gap-4">
+          <p className="text-red-500">
+            {" "}
+            {tasks.filter((t) => t.favourite).length} of {tasks.length}{" "}
+            favourites chosen
+          </p>
+          <button
+            onClick={clearAll}
+            className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
+          >
+            Clear all
+          </button>{" "}
+        </div>
       )}
       {tasks.length !== 0 && (
         <div className="flex flex-col mb-3">
           {" "}
-          <a             href="https://www.youtube.com/watch?v=Ct6BUPvE2sM&list=RDCt6BUPvE2sM&start_radio=1" target="_blank"
- className="text-center text-4xl text-green-500">
+          <a
+            href="https://www.youtube.com/watch?v=Ct6BUPvE2sM&list=RDCt6BUPvE2sM&start_radio=1"
+            target="_blank"
+            className="text-center text-4xl text-green-500"
+          >
             You can do this!
           </a>
           <img
@@ -133,7 +143,13 @@ export default function Todo(props) {
         </div>
       )}
       <div className=" flex gap-2">
-        <a   href="https://www.youtube.com/watch?v=NjD0H4eBfng&list=RDNjD0H4eBfng&start_radio=1" target="_blank" className="text-gray-400 ">Powered by</a>
+        <a
+          href="https://www.youtube.com/watch?v=NjD0H4eBfng&list=RDNjD0H4eBfng&start_radio=1"
+          target="_blank"
+          className="text-gray-400 "
+        >
+          Powered by
+        </a>
         <a
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           target="_blank"
