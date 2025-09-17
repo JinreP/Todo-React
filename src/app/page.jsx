@@ -53,7 +53,7 @@ export default function Home() {
     if (filter === "all") return true;
     else if (filter === "active") return t.completed === false;
     else if (filter === "completed") return t.completed === true;
-    else if (filter === "important") return t.important === true;
+    else if (filter === "favourite") return t.favourite === true;
   });
   const clearCompleted = () => {
     const clear = tasks.filter((task) => !task.completed);
