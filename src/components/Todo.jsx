@@ -12,9 +12,11 @@ export default function Todo(props) {
     filter,
     setFilter,
     visibleTask,
+    clearAll,
     handleKeyDown,
     clearCompleted,
     toggleTask,
+
   } = props;
   return (
     <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-white shadow-md">
@@ -87,9 +89,23 @@ export default function Todo(props) {
             </button>
           </div>
         ))}
+      {tasks.length !== 0 && (
+        <button
+          onClick={clearAll}
+          
+          className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
+        >
+          Clear all
+        </button>
+      )}
       <div className=" flex gap-2">
         <p className="text-gray-400 ">Powered by</p>
-        <a href="" className="text-blue-300">
+        <a
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          target="_blank"
+
+          className="text-blue-300"
+        >
           Pinecone academy
         </a>
       </div>

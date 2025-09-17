@@ -8,6 +8,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [checked, setChecked] = useState(false);
   const [id, setId] = useState(1);
+
   function handleChange(e) {
     setInputValue(e.target.value);
   }
@@ -19,6 +20,7 @@ export default function Home() {
           id: id,
           title: inputValue.trim(),
           completed: false,
+          important: false,
         },
       ]);
       setId(id + 1);
@@ -56,6 +58,11 @@ export default function Home() {
       addTask();
     }
   };
+
+  const clearAll = () => {
+    setTasks([]);
+  };
+
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center">
       <Todo
@@ -73,6 +80,7 @@ export default function Home() {
         clearCompleted={clearCompleted}
         id={id}
         setId={setId}
+        clearAll={clearAll}
         visibleTask={visibleTask}
         setChecked={setChecked}
         toggleTask={toggleTask}

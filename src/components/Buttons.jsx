@@ -40,6 +40,18 @@ export function Buttons(props) {
       >
         Completed
       </button>
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        className={`w-[100px] h-[32px] rounded text-center ${
+          filter === "important"
+            ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
+            : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
+        }
+     `}
+      >
+        Click here
+      </a>
     </div>
   );
 }
