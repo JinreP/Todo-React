@@ -54,15 +54,15 @@ export function Buttons(props) {
       </a> */}
 
       <button
-        onClick={() => setFilter("important")}
+        onClick={() => setFilter("favourite")}
         className={`w-[100px] h-[32px] rounded text-center ${
-          filter === "important"
+          filter === "favourite"
             ? "bg-blue-500 active:bg-blue-400 hover:bg-blue-400    text-white"
             : "bg-gray-200 text-black active:bg-blue-400 hover:bg-gray-100   "
         }
      `}
       >
-        Important
+        Favourite
       </button>
     </div>
   );

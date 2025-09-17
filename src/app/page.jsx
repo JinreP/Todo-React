@@ -20,7 +20,7 @@ export default function Home() {
           id: id,
           title: inputValue.trim(),
           completed: false,
-          important: false,
+          favourite: false,
         },
       ]);
       setId(id + 1);
@@ -45,7 +45,7 @@ export default function Home() {
   const toggleImportant = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, important: !task.important } : task
+        task.id === id ? { ...task, favourite: !task.favourite } : task
       )
     );
   };
