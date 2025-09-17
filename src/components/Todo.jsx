@@ -121,9 +121,10 @@ export default function Todo(props) {
       {tasks.length !== 0 && (
         <div className="flex flex-col mb-3">
           {" "}
-          <p className="text-center text-4xl text-green-500">
+          <a             href="https://www.youtube.com/watch?v=Ct6BUPvE2sM&list=RDCt6BUPvE2sM&start_radio=1" target="_blank"
+ className="text-center text-4xl text-green-500">
             You can do this!
-          </p>
+          </a>
           <img
             src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/11/Anime-Funny-Deku.jpg"
             alt="midoriya chmg demjij bn"
@@ -132,7 +133,7 @@ export default function Todo(props) {
         </div>
       )}
       <div className=" flex gap-2">
-        <p className="text-gray-400 ">Powered by</p>
+        <a   href="https://www.youtube.com/watch?v=NjD0H4eBfng&list=RDNjD0H4eBfng&start_radio=1" target="_blank" className="text-gray-400 ">Powered by</a>
         <a
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           target="_blank"
