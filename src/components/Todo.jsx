@@ -89,11 +89,7 @@ export default function Todo(props) {
         ))}
       <div className=" flex gap-2">
         <p className="text-gray-400 ">Powered by</p>
-        <a
-          href="https://pinecone.mn/"
-          target="_blank"
-          className="text-blue-300"
-        >
+        <a href="" className="text-blue-300">
           Pinecone academy
         </a>
       </div>
