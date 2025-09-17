@@ -42,6 +42,13 @@ export default function Home() {
     );
   };
 
+  const toggleImportant = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, important: !task.important } : task
+      )
+    );
+  };
   const visibleTask = tasks.filter((t) => {
     if (filter === "all") return true;
     else if (filter === "active") return t.completed === false;
@@ -73,6 +80,7 @@ export default function Home() {
         handleChange={handleChange}
         addTask={addTask}
         deleteTasks={deleteTasks}
+        toggleImportant={toggleImportant}
         handleKeyDown={handleKeyDown}
         filter={filter}
         setFilter={setFilter}

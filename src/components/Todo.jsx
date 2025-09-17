@@ -10,21 +10,21 @@ export default function Todo(props) {
     addTask,
     deleteTasks,
     filter,
+    toggleImportant,
     setFilter,
     visibleTask,
     clearAll,
     handleKeyDown,
     clearCompleted,
     toggleTask,
-
   } = props;
   return (
-    <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-white shadow-md">
+    <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-black">
       <h1 className="text-2xl ">To-Do-List</h1>
       <div className="flex gap-[10px]">
         <input
           type="text"
-          className="w-[250px] px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 text-gray-800 placeholder-gray-400 "
+          className="w-[250px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 text-red-500 placeholder-gray-500 "
           placeholder="Add a new task"
           value={inputValue}
           onKeyDown={handleKeyDown}
@@ -41,6 +41,7 @@ export default function Todo(props) {
         filter={filter}
         setFilter={setFilter}
         visibleTask={visibleTask}
+        toggleImportant={toggleImportant}
       />
       <ol className="flex flex-col gap-2">
         {visibleTask.map((task, i) => (
@@ -61,6 +62,16 @@ export default function Todo(props) {
             >
               {task.title}
             </span>{" "}
+            <input
+              type="button"
+              value={"☢︎"}
+              onClick={() => {
+                toggleImportant(task.id);
+              }}
+              className={`w-[20px] absolute right-24 h-[20px] cursor-pointer
+                  ${task.important === false ? "" : "text-[red]"}
+                `}
+            />
             <button
               className="bg-red-50 text-red-500 px-3 py-1.5 rounded-[10px] active:bg-red-200 hover:bg-red-100"
               onClick={() => deleteTasks(i)}
@@ -71,12 +82,22 @@ export default function Todo(props) {
         ))}
       </ol>
       {(tasks.length === 0 && (
-        <p className="text-gray-500 ">No tasks yet. Add one above!</p>
+        <div>
+          {" "}
+          <p className="text-gray-500 text-center">
+            No tasks yet. Add one above!
+          </p>
+          <img
+            src="https://pbs.twimg.com/media/EKD7G7_WsAA3fqQ.jpg"
+            alt="Gintama hamaraa uhav"
+            className="w-[400px] h-[200px]"
+          />
+        </div>
       )) ||
         (tasks.length !== 0 && (
           <div className="flex gap-10">
             {" "}
-            <p className="">
+            <p className="text-red-500">
               {" "}
               {tasks.filter((t) => t.completed).length} of {tasks.length} tasks
               completed
@@ -92,18 +113,29 @@ export default function Todo(props) {
       {tasks.length !== 0 && (
         <button
           onClick={clearAll}
-          
           className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
         >
           Clear all
         </button>
+      )}
+      {tasks.length !== 0 && (
+        <div className="flex flex-col mb-3">
+          {" "}
+          <p className="text-center text-4xl text-green-500">
+            You can do this!
+          </p>
+          <img
+            src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/11/Anime-Funny-Deku.jpg"
+            alt="midoriya chmg demjij bn"
+            className="w-[400px] h-[180px]"
+          />
+        </div>
       )}
       <div className=" flex gap-2">
         <p className="text-gray-400 ">Powered by</p>
         <a
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           target="_blank"
-
           className="text-blue-300"
         >
           Pinecone academy
