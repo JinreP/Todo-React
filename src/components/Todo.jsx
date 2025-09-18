@@ -128,14 +128,53 @@ export default function Todo(props) {
       {tasks.length !== 0 && (
         <div className="flex flex-col mb-3">
           {" "}
-          <p className="text-center text-4xl text-green-500">
-            You can do this!
-          </p>
-          <img
-            src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/11/Anime-Funny-Deku.jpg"
-            alt="midoriya chmg demjij bn"
-            className="w-[400px] h-[180px]"
-          />
+          {filter === "all" && (
+            <div>
+              <p className="text-center text-4xl text-green-500">
+                You can do this!
+              </p>
+              <img
+                src="https://img-cdn.tnwcdn.com/image?fit=1200%2C1200&height=1200&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2021%2F06%2FAI-Memer_-very-angry-troll_1_1.jpg&signature=f3914220842cdc9f191d3b7417510a1e"
+                alt="midoriya chmg demjij bn"
+                className="w-[400px] h-[400px]"
+              />
+            </div>
+          )}
+          {filter === "active" && (
+            <div>
+              <p className="text-center text-4xl text-green-500">Faster!!!!</p>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmAa9P83K6EVUswCf6xUDDxE9_1E5uSc_eL3PSVPBmGKdegdH29vhdKsqZHpouwrSKUns&usqp=CAU"
+                alt="midoriya chmg demjij bn"
+                className="w-[400px] h-[400px]"
+              />
+            </div>
+          )}
+          {filter === "completed" && (
+            <div>
+              <p className="text-center text-4xl text-green-500">
+                You nailed it!!
+              </p>
+
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBPcICoDgHJBQIeav3iLf-00mcIcMcWK5J55LJpYgV6vgQV-HIMlj6zUSAcNqnl2A9pzA&usqp=CAU"
+                alt="midoriya chmg demjij bn"
+                className="w-[400px] h-[400px]"
+              />
+            </div>
+          )}
+          {filter === "favourite" && (
+            <div>
+              <p className="text-center text-4xl text-green-500">
+                You're favourites
+              </p>
+              <img
+                src="https://media.tenor.com/XcBhzswyUV0AAAAM/e.gif"
+                alt="midoriya chmg demjij bn"
+                className="w-[400px] h-[400px]"
+              />
+            </div>
+          )}
         </div>
       )}
       <div className=" flex gap-2">
