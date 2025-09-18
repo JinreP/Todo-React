@@ -144,7 +144,7 @@ export default function Todo(props) {
             <div>
               <p className="text-center text-4xl text-green-500">Faster!!!!</p>
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmAa9P83K6EVUswCf6xUDDxE9_1E5uSc_eL3PSVPBmGKdegdH29vhdKsqZHpouwrSKUns&usqp=CAU"
+                src="https://i.pinimg.com/474x/4c/40/d5/4c40d58f1ef66b268a406851cc6b9355.jpg"
                 alt="midoriya chmg demjij bn"
                 className="w-[400px] h-[400px]"
               />
