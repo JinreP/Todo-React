@@ -20,7 +20,7 @@ export default function Todo(props) {
   } = props;
   return (
     <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-black">
-      <h1 className="text-4xl text-red-500 ">To-Do-List</h1>
+      <h1 className="text-2xl text-red-500 ">To-Do-List</h1>
       <div className="flex gap-[10px]">
         <input
           type="text"
@@ -111,30 +111,26 @@ export default function Todo(props) {
           </div>
         ))}
       {tasks.length !== 0 && (
-        <div className="flex gap-4">
+        <div className="flex gap-5">
           <p className="text-red-500">
             {" "}
             {tasks.filter((t) => t.favourite).length} of {tasks.length}{" "}
-            favourites chosen
+            favourite has chosen
           </p>
           <button
             onClick={clearAll}
             className="text-red-500 pl-0 cursor-pointer active:text-red-300 "
           >
             Clear all
-          </button>{" "}
+          </button>
         </div>
       )}
       {tasks.length !== 0 && (
         <div className="flex flex-col mb-3">
           {" "}
-          <a
-            href="https://www.youtube.com/watch?v=Ct6BUPvE2sM&list=RDCt6BUPvE2sM&start_radio=1"
-            target="_blank"
-            className="text-center text-4xl text-green-500"
-          >
+          <p className="text-center text-4xl text-green-500">
             You can do this!
-          </a>
+          </p>
           <img
             src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/11/Anime-Funny-Deku.jpg"
             alt="midoriya chmg demjij bn"
@@ -143,13 +139,7 @@ export default function Todo(props) {
         </div>
       )}
       <div className=" flex gap-2">
-        <a
-          href="https://www.youtube.com/watch?v=NjD0H4eBfng&list=RDNjD0H4eBfng&start_radio=1"
-          target="_blank"
-          className="text-gray-400 "
-        >
-          Powered by
-        </a>
+        <p className="text-gray-400 ">Powered by</p>
         <a
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           target="_blank"
