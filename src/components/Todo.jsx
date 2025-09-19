@@ -19,12 +19,14 @@ export default function Todo(props) {
     toggleTask,
   } = props;
   return (
-    <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px]  rounded-[12px]  bg-black">
-      <h1 className="text-2xl text-red-500 ">To-Do-List</h1>
+    <div className="flex w-[377px]  h-fit flex-col justify-center items-center gap-[20px] *:font-mono *:text-[12px] rounded-[12px] p-4 bg-white">
+      <div>
+        <p className="text-[22px] text-blue-700 ">To-Do-List</p>
+      </div>
       <div className="flex gap-[10px]">
         <input
           type="text"
-          className="w-[250px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 text-red-500 placeholder-gray-500 "
+          className="w-[250px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600  text-black placeholder-gray-500 "
           placeholder="Add a new task"
           value={inputValue}
           onKeyDown={handleKeyDown}
@@ -47,7 +49,7 @@ export default function Todo(props) {
         {visibleTask.map((task, i) => (
           <li
             key={task.id}
-            className="flex gap-2 relative w-[345px]  py-2 px-3 items-center justify-between bg-gray-200 rounded-[5px] b"
+            className="flex gap-2 relative w-[345px]  py-2 px-3 items-center justify-between bg-blue-100 rounded-[5px] b"
           >
             <input
               type="checkbox"
@@ -56,7 +58,7 @@ export default function Todo(props) {
               onChange={() => toggleTask(task.id)}
             />
             <span
-              className={`pl-9 text-2xl ${
+              className={`pl-9 text-2xl text-amber-700 ${
                 task.completed ? "line-through text-gray-500" : ""
               }`}
             >
@@ -130,19 +132,19 @@ export default function Todo(props) {
           {" "}
           {filter === "all" && (
             <div>
-              <p className="text-center text-4xl text-green-500">
+              <p className="text-center text-4xl text-pink-300">
                 You can do this!
               </p>
               <img
-                src="https://img-cdn.tnwcdn.com/image?fit=1200%2C1200&height=1200&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2021%2F06%2FAI-Memer_-very-angry-troll_1_1.jpg&signature=f3914220842cdc9f191d3b7417510a1e"
+                src="https://cdn-useast1.kapwing.com/static/templates/buddy-christ-meme-template-full-e34c6303.webp"
                 alt="midoriya chmg demjij bn"
-                className="w-[400px] h-[400px]"
+                className="w-[500px] h-[400px]"
               />
             </div>
           )}
           {filter === "active" && (
             <div>
-              <p className="text-center text-4xl text-green-500">Faster!!!!</p>
+              <p className="text-center text-4xl text-red-500">Faster!!!!⚠️</p>
               <img
                 src="https://i.pinimg.com/474x/4c/40/d5/4c40d58f1ef66b268a406851cc6b9355.jpg"
                 alt="midoriya chmg demjij bn"
@@ -152,8 +154,8 @@ export default function Todo(props) {
           )}
           {filter === "completed" && (
             <div>
-              <p className="text-center text-4xl text-green-500">
-                You nailed it!!
+              <p className="text-center text-4xl text-blue-500">
+                You nailed it!!✅
               </p>
 
               <img
@@ -165,7 +167,7 @@ export default function Todo(props) {
           )}
           {filter === "favourite" && (
             <div>
-              <p className="text-center text-4xl text-green-500">
+              <p className="text-center text-4xl text-yellow-500">
                 You're favourites
               </p>
               <img

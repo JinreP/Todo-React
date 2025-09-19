@@ -1,7 +1,7 @@
 export function Buttons(props) {
   const { filter, setFilter, visibleTask, toggleImportant } = props;
   return (
-    <div className="flex justify-center gap-3 items-center ">
+    <div className="flex justify-center gap-1 items-center ">
       <button
         onClick={() => {
           setFilter("all");

@@ -15,13 +15,13 @@ export default function Home() {
   const addTask = () => {
     if (inputValue.trim() !== "") {
       setTasks([
-        ...tasks,
         {
           id: id,
           title: inputValue.trim(),
           completed: false,
           favourite: false,
         },
+        ...tasks,
       ]);
       setId(id + 1);
       setInputValue("");
