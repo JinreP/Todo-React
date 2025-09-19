@@ -144,9 +144,11 @@ export default function Todo(props) {
           )}
           {filter === "active" && (
             <div>
-              <p className="text-center text-4xl text-red-500">Faster!!!!⚠️</p>
+              <p className="text-center text-4xl text-red-500">
+                pathetic!!!!⚠️
+              </p>
               <img
-                src="https://i.pinimg.com/474x/4c/40/d5/4c40d58f1ef66b268a406851cc6b9355.jpg"
+                src="https://i.ytimg.com/vi/UQzhe4eJzNQ/maxresdefault.jpg"
                 alt="midoriya chmg demjij bn"
                 className="w-[400px] h-[400px]"
               />
